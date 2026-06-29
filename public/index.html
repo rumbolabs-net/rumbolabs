@@ -3,16 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RumboLabs — a studio building small, sharp software</title>
-  <meta name="description" content="RumboLabs is an independent studio building focused software products: Draftmark, PixelVault, ContentVitals, and Joblane." />
+  <title>RumboLabs — AI-native software studio in Barcelona</title>
+  <meta name="description" content="RumboLabs is an independent, bootstrapped studio in Barcelona building small, sharp, AI-native and privacy-first software: Draftmark, PixelVault, ContentVitals, and Joblane." />
+  <link rel="canonical" href="https://rumbolabs.net/" />
+  <meta name="theme-color" content="#fdf9f3" />
 
-  <!-- Open Graph / social -->
-  <meta property="og:title" content="RumboLabs" />
-  <meta property="og:description" content="An independent studio building small, sharp software products." />
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rumbolabs.net" />
+  <meta property="og:site_name" content="RumboLabs" />
+  <meta property="og:title" content="RumboLabs — AI-native software studio in Barcelona" />
+  <meta property="og:description" content="An independent, bootstrapped studio building small, sharp, AI-native, privacy-first software products." />
+  <meta property="og:url" content="https://rumbolabs.net/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://rumbolabs.net/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="RumboLabs — we build small, sharp software products" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RumboLabs — AI-native software studio in Barcelona" />
+  <meta name="twitter:description" content="An independent, bootstrapped studio building small, sharp, AI-native, privacy-first software products." />
+  <meta name="twitter:image" content="https://rumbolabs.net/og.png" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://rumbolabs.net/#org",
+        "name": "RumboLabs",
+        "url": "https://rumbolabs.net/",
+        "description": "An independent, bootstrapped studio in Barcelona building small, sharp, AI-native and privacy-first software products.",
+        "email": "hello@rumbolabs.net",
+        "logo": "https://rumbolabs.net/og.png",
+        "foundingLocation": {
+          "@type": "Place",
+          "address": { "@type": "PostalAddress", "addressLocality": "Barcelona", "addressCountry": "ES" }
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rumbolabs.net/#website",
+        "url": "https://rumbolabs.net/",
+        "name": "RumboLabs",
+        "publisher": { "@id": "https://rumbolabs.net/#org" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "RumboLabs products",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "Draftmark", "url": "https://draftmark.app", "applicationCategory": "BusinessApplication", "description": "Share your thinking in markdown — write, publish, and gather feedback, with an API for people and AI agents." } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "PixelVault", "url": "https://pixelvault.dev", "applicationCategory": "DeveloperApplication", "description": "Agent-first image hosting — upload via API and get instant CDN URLs." } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "ContentVitals", "url": "https://contentvitals.ai", "applicationCategory": "BusinessApplication", "description": "AI agents that monitor your content's vital signs and tell you exactly how to fix SEO issues." } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Joblane", "url": "https://joblane.ai", "applicationCategory": "BusinessApplication", "description": "An AI job-application copilot: honest Apply/Stretch/Skip verdicts plus a tailored CV and cover letter from your real experience." } }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- mark JS as available before paint so reveal animations apply only with JS -->
   <script>document.documentElement.classList.add("js");</script>
