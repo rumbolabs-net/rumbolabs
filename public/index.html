@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RumboLabs — a studio building small, sharp software</title>
+  <meta name="description" content="RumboLabs is an independent studio building focused software products: Draftmark, PixelVault, ContentVitals, and Joblane." />
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="RumboLabs" />
+  <meta property="og:description" content="An independent studio building small, sharp software products." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rumbolabs.net" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <!-- mark JS as available before paint so reveal animations apply only with JS -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <style>
+    :root {
+      --bg: #fdf9f3;
+      --bg-2: #fbf3e9;
+      --ink: #1c1a17;
+      --ink-soft: #5b5650;
+      --line: #eadfce;
+      --card: #ffffff;
+
+      /* per-product colors */
+      --draftmark: #ff6b5c;
+      --pixelvault: #7c5cff;
+      --contentvitals: #12b98a;
+      --joblane: #f5a623;
+
+      --radius: 22px;
+      --shadow: 0 18px 40px -22px rgba(40, 30, 20, .35);
+      --shadow-lift: 0 30px 60px -24px rgba(40, 30, 20, .45);
+      --font: "Poppins", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14110d;
+        --bg-2: #1b1712;
+        --ink: #f6efe4;
+        --ink-soft: #b8ad9d;
+        --line: #2c2620;
+        --card: #1f1a14;
+        --shadow: 0 18px 40px -22px rgba(0, 0, 0, .7);
+        --shadow-lift: 0 30px 60px -24px rgba(0, 0, 0, .8);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    .wrap { width: min(1080px, 92vw); margin-inline: auto; }
+
+    /* decorative background blobs */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .35;
+      z-index: 0;
+      pointer-events: none;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .blob.b1 { width: 420px; height: 420px; background: var(--draftmark);  top: -120px; left: -100px; }
+    .blob.b2 { width: 380px; height: 380px; background: var(--pixelvault); top: 30%; right: -140px; animation-delay: -6s; }
+    .blob.b3 { width: 340px; height: 340px; background: var(--contentvitals); bottom: -120px; left: 20%; animation-delay: -11s; }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, -40px) scale(1.12); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob, .star, .reveal { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- header ---------- */
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 26px 0;
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.25rem; letter-spacing: -.02em;
+      text-decoration: none;
+    }
+    .star {
+      display: inline-block; font-size: 1.1rem; color: var(--draftmark);
+      animation: spin 9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .nav { display: flex; gap: 26px; font-weight: 500; font-size: .95rem; }
+    .nav a { text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+    .nav a:hover { color: var(--ink); }
+    @media (max-width: 640px) { .nav { display: none; } }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; z-index: 1; padding: 70px 0 50px; }
+    .eyebrow {
+      display: inline-block;
+      font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-soft);
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 7px 14px; border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: -.03em;
+      font-weight: 700;
+      max-width: 16ch;
+    }
+    h1 .grad {
+      background: linear-gradient(100deg, var(--draftmark), var(--pixelvault) 45%, var(--contentvitals));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lede {
+      margin-top: 22px;
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      color: var(--ink-soft);
+      max-width: 52ch;
+    }
+    .cta-row { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 600; font-size: 1rem;
+      padding: 13px 24px; border-radius: 999px;
+      text-decoration: none; border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background .2s;
+    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--bg-2); }
+
+    /* ---------- products ---------- */
+    section { position: relative; z-index: 1; padding: 60px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -.02em; font-weight: 700;
+    }
+    .section-head p { color: var(--ink-soft); margin-top: 8px; max-width: 56ch; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      --c: var(--ink);
+      position: relative;
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s, border-color .22s;
+    }
+    .card::before {
+      content: "";
+      position: absolute; inset: 0 0 auto 0; height: 5px;
+      background: var(--c);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .card:hover { transform: translateY(-8px) rotate(-.4deg); box-shadow: var(--shadow-lift); border-color: var(--c); }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card .icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: grid; place-items: center;
+      font-size: 1.5rem; font-weight: 700; color: #fff;
+      background: var(--c);
+      margin-bottom: 18px;
+      box-shadow: 0 10px 22px -10px var(--c);
+    }
+    .card h3 {
+      font-size: 1.4rem; letter-spacing: -.01em;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .card .domain { color: var(--c); font-weight: 600; font-size: .92rem; margin-top: 2px; }
+    .card p { color: var(--ink-soft); margin-top: 14px; }
+    .card .more {
+      margin-top: 18px; font-weight: 600; font-size: .92rem; color: var(--c);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .card .more .arrow { transition: transform .2s; }
+    .card:hover .more .arrow { transform: translateX(4px); }
+
+    .badge {
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--c); color: #fff;
+    }
+
+    /* ---------- about ---------- */
+    .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    @media (max-width: 760px) { .about .wrap { grid-template-columns: 1fr; gap: 28px; } }
+    .about h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -.02em; }
+    .about p { color: var(--ink-soft); margin-top: 16px; font-size: 1.05rem; }
+    .values { list-style: none; display: grid; gap: 16px; }
+    .values li {
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;
+    }
+    .values li strong { display: block; margin-bottom: 4px; }
+    .values li span { color: var(--ink-soft); font-size: .95rem; }
+
+    /* ---------- footer ---------- */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 44px 0; margin-top: 30px; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+    footer .muted { color: var(--ink-soft); font-size: .9rem; }
+    footer .links { display: flex; gap: 22px; font-size: .92rem; font-weight: 500; }
+    footer .links a { text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+    footer .links a:hover { color: var(--ink); }
+
+    /* reveal-on-scroll — progressive enhancement: only hidden when JS is active */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="/"><span class="star">✦</span> RumboLabs</a>
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Independent software studio</span>
+        <h1>We build small, <span class="grad">sharp</span> software products.</h1>
+        <p class="lede">
+          RumboLabs is a maker-run studio. We pick real problems, ship focused tools,
+          and sweat the details so you don't have to. Here's what we're building.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#products">See our products →</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>What we're building</h2>
+          <p>Four products, each solving one thing well — and each built API-first, with AI woven in responsibly.</p>
+        </div>
+
+        <div class="grid">
+          <a class="card reveal" style="--c: var(--draftmark)" href="https://draftmark.app/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
+            <div class="icon">D</div>
+            <h3>Draftmark</h3>
+            <div class="domain">draftmark.app</div>
+            <p>Share your thinking in markdown. Write, publish, and gather feedback on documents — with a clean API built for people and AI agents alike.</p>
+            <span class="more">Visit site <span class="arrow">→</span></span>
+          </a>
+
+          <a class="card reveal" style="--c: var(--pixelvault)" href="https://pixelvault.dev/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
+            <div class="icon">P</div>
+            <h3>PixelVault</h3>
+            <div class="domain">pixelvault.dev</div>
+            <p>Agent-first image hosting. Upload images via API and get instant CDN URLs — built for developers and AI workflows.</p>
+            <span class="more">Visit site <span class="arrow">→</span></span>
+          </a>
+
+          <a class="card reveal" style="--c: var(--contentvitals)" href="https://contentvitals.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
+            <div class="icon">C</div>
+            <h3>ContentVitals</h3>
+            <div class="domain">contentvitals.ai</div>
+            <p>Your content has vital signs — we monitor them. AI agents catch broken links, decay, and SEO issues, then tell you exactly how to fix them.</p>
+            <span class="more">Visit site <span class="arrow">→</span></span>
+          </a>
+
+          <a class="card reveal" style="--c: var(--joblane)" href="https://joblane.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
+            <div class="icon">J</div>
+            <h3>Joblane <span class="badge">New</span></h3>
+            <div class="domain">joblane.ai</div>
+            <p>An AI job-application copilot: paste a posting for an honest Apply / Stretch / Skip verdict, then get a tailored CV and cover letter from your real experience — with a reviewer pass showing every change.</p>
+            <span class="more">Visit site <span class="arrow">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap">
+        <div class="reveal">
+          <h2>Who we are</h2>
+          <p>
+            RumboLabs is an independent studio based in <strong>Barcelona, Spain</strong>,
+            with a simple belief: software should be small, fast, and genuinely useful.
+            We work on a handful of products at a time, ship often, and listen closely to
+            the people who use them.
+          </p>
+          <p>
+            We're fully bootstrapped — no VC, no investors — so every product is built to
+            stand on its own and grow organically. We lean heavily on AI, but the right way:
+            privacy is a first-class citizen here, and your data is yours, never the product.
+            No bloat, no dark patterns — just tools we'd want to use ourselves.
+          </p>
+        </div>
+        <ul class="values reveal">
+          <li><strong>Focused</strong><span>Each product does one thing, and does it well.</span></li>
+          <li><strong>AI-native, privacy-first</strong><span>We use AI throughout — with your data treated as yours, not the product.</span></li>
+          <li><strong>Bootstrapped</strong><span>100% self-funded — no VC. We grow organically, paced by happy customers, not ads.</span></li>
+          <li><strong>Crafted</strong><span>We sweat the small stuff so the experience feels effortless.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div>
+        <a class="logo" href="/"><span class="star">✦</span> RumboLabs</a>
+        <p class="muted">Made in Barcelona 🇪🇸 · Built with care. © <span id="year"></span> RumboLabs.</p>
+      </div>
+      <div class="links">
+        <a href="mailto:hello@rumbolabs.net">hello@rumbolabs.net</a>
+        <a href="https://draftmark.app/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">Draftmark</a>
+        <a href="https://pixelvault.dev/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">PixelVault</a>
+        <a href="https://contentvitals.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">ContentVitals</a>
+        <a href="https://joblane.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">Joblane</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>

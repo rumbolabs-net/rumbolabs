@@ -1,0 +1,13 @@
+{
+  // RumboLabs — static site served via Cloudflare Workers Static Assets.
+  // Pure static: no Worker script needed, Wrangler serves ./public directly.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rumbolabs",
+  "compatibility_date": "2025-06-29",
+  "assets": {
+    "directory": "./public"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
