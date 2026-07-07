@@ -1,5 +1,7 @@
 # RumboLabs
 
+**Live:** https://rumbolabs.net · Cloudflare Worker `rumbolabs` · deploy with `npm run deploy` ([details](#deploy))
+
 The umbrella site for **[rumbolabs.net](https://rumbolabs.net)** — an independent,
 bootstrapped studio in Barcelona building small, sharp, AI-native and privacy-first
 software products:
@@ -75,3 +77,13 @@ All copy and styling live in **`public/index.html`** (single file).
   `utm_content=hero-card|footer`. Keep this scheme consistent when adding links.
 
 After editing, run `npm run deploy` to publish.
+
+## License
+
+The **source code** is released under the [MIT License](LICENSE) — feel free to learn
+from it, fork it, and reuse the code.
+
+The **RumboLabs brand is not** covered by that license. The name "RumboLabs" and its
+product names (Draftmark, PixelVault, ContentVitals, Joblane), logos, `og.png`, and
+marketing copy remain © RumboLabs. Please don't reuse them in a way that implies
+affiliation or passes your project off as ours.

@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "RumboLabs umbrella site — rumbolabs.net",
+  "license": "MIT",
+  "author": "Facundo Farias",
+  "homepage": "https://rumbolabs.net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facundofarias/rumbolabs.git"
+  },
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
