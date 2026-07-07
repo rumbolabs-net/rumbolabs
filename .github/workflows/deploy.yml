@@ -1,0 +1,54 @@
+name: Deploy
+
+# Auto-deploy to Cloudflare Workers on push to main.
+# Docs-only changes (README, LICENSE, CLAUDE.md) don't touch what's served,
+# so they're excluded to avoid pointless redeploys. Use "Run workflow" to
+# deploy manually at any time.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+      - "wrangler.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never run two production deploys at once; let an in-flight one finish.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Deploy to Cloudflare Workers
+        run: npm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Verify production returns 200
+        run: |
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://rumbolabs.net/)
+            echo "attempt $i: rumbolabs.net -> $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 5
+          done
+          echo "::error::Site did not return 200 after deploy"
+          exit 1
