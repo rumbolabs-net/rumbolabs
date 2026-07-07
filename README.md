@@ -1,5 +1,7 @@
 # RumboLabs
 
+[![Deploy](https://github.com/facundofarias/rumbolabs/actions/workflows/deploy.yml/badge.svg)](https://github.com/facundofarias/rumbolabs/actions/workflows/deploy.yml)
+
 **Live:** https://rumbolabs.net · Cloudflare Worker `rumbolabs` · deploy with `npm run deploy` ([details](#deploy))
 
 The umbrella site for **[rumbolabs.net](https://rumbolabs.net)** — an independent,
