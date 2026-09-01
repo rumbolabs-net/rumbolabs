@@ -1,6 +1,6 @@
 # RumboLabs
 
-[![Deploy](https://github.com/facundofarias/rumbolabs/actions/workflows/deploy.yml/badge.svg)](https://github.com/facundofarias/rumbolabs/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/rumbolabs-net/rumbolabs/actions/workflows/deploy.yml/badge.svg)](https://github.com/rumbolabs-net/rumbolabs/actions/workflows/deploy.yml)
 
 **Live:** https://rumbolabs.net · Cloudflare Worker `rumbolabs` · deploy with `npm run deploy` ([details](#deploy))
 
