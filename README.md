@@ -14,6 +14,7 @@ software products:
 | PixelVault | [pixelvault.dev](https://pixelvault.dev) | Agent-first image hosting — upload via API, get instant CDN URLs |
 | ContentVitals | [contentvitals.ai](https://contentvitals.ai) | AI agents that monitor your content's "vital signs" and tell you how to fix SEO issues |
 | Joblane | [joblane.ai](https://joblane.ai) | AI job-application copilot — Apply/Stretch/Skip verdicts plus tailored CV and cover letter |
+| Pecia | [pecia.app](https://pecia.app) | Your reading library and what to read next, secondhand — tracks used-book prices across editions, shipping included (Spanish) |
 
 Single-page, fully static site served via **Cloudflare Workers Static Assets**.
 No build step, no dependencies — just one self-contained HTML file.
@@ -73,7 +74,7 @@ All copy and styling live in **`public/index.html`** (single file).
 
 - **Product cards** are in the `#products` section.
 - **Per-product colors** are CSS variables near the top of the file:
-  `--draftmark`, `--pixelvault`, `--contentvitals`, `--joblane`.
+  `--draftmark`, `--pixelvault`, `--contentvitals`, `--joblane`, `--pecia`.
 - **Outbound product links carry UTMs** for referral attribution:
   `utm_source=rumbolabs.net` · `utm_medium=referral` · `utm_campaign=homepage` ·
   `utm_content=hero-card|footer`. Keep this scheme consistent when adding links.
@@ -86,6 +87,6 @@ The **source code** is released under the [MIT License](LICENSE) — feel free t
 from it, fork it, and reuse the code.
 
 The **RumboLabs brand is not** covered by that license. The name "RumboLabs" and its
-product names (Draftmark, PixelVault, ContentVitals, Joblane), logos, `og.png`, and
+product names (Draftmark, PixelVault, ContentVitals, Joblane, Pecia), logos, `og.png`, and
 marketing copy remain © RumboLabs. Please don't reuse them in a way that implies
 affiliation or passes your project off as ours.

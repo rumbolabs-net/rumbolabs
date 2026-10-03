@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RumboLabs — AI-native software studio in Barcelona</title>
-  <meta name="description" content="RumboLabs is an independent, bootstrapped studio in Barcelona building small, sharp, AI-native and privacy-first software: Draftmark, PixelVault, ContentVitals, and Joblane." />
+  <meta name="description" content="RumboLabs is an independent, bootstrapped studio in Barcelona building small, sharp, AI-native and privacy-first software: Draftmark, PixelVault, ContentVitals, Joblane, and Pecia." />
   <link rel="canonical" href="https://rumbolabs.net/" />
   <meta name="theme-color" content="#fdf9f3" />
 
@@ -68,7 +68,8 @@
           { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "Draftmark", "url": "https://draftmark.app", "applicationCategory": "BusinessApplication", "description": "Share your thinking in markdown — write, publish, and gather feedback, with an API for people and AI agents." } },
           { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "PixelVault", "url": "https://pixelvault.dev", "applicationCategory": "DeveloperApplication", "description": "Agent-first image hosting — upload via API and get instant CDN URLs." } },
           { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "ContentVitals", "url": "https://contentvitals.ai", "applicationCategory": "BusinessApplication", "description": "AI agents that monitor your content's vital signs and tell you exactly how to fix SEO issues." } },
-          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Joblane", "url": "https://joblane.ai", "applicationCategory": "BusinessApplication", "description": "An AI job-application copilot: honest Apply/Stretch/Skip verdicts plus a tailored CV and cover letter from your real experience." } }
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Joblane", "url": "https://joblane.ai", "applicationCategory": "BusinessApplication", "description": "An AI job-application copilot: honest Apply/Stretch/Skip verdicts plus a tailored CV and cover letter from your real experience." } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Pecia", "url": "https://pecia.app", "applicationCategory": "LifestyleApplication", "inLanguage": "es", "description": "Your reading library and what to read next, secondhand — Pecia tracks used-book prices for every title, in any edition, shipping included." } }
         ]
       }
     ]
@@ -92,6 +93,7 @@
       --pixelvault: #7c5cff;
       --contentvitals: #12b98a;
       --joblane: #f5a623;
+      --pecia: #4a7a63;
 
       --radius: 22px;
       --shadow: 0 18px 40px -22px rgba(40, 30, 20, .35);
@@ -230,6 +232,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
+    .grid .wide { grid-column: 1 / -1; }
     @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
 
     .card {
@@ -344,7 +347,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <h2>What we're building</h2>
-          <p>Four products, each solving one thing well — and each built API-first, with AI woven in responsibly.</p>
+          <p>Five products, each solving one thing well — and each built API-first, with AI woven in responsibly.</p>
         </div>
 
         <div class="grid">
@@ -374,9 +377,17 @@
 
           <a class="card reveal" style="--c: var(--joblane)" href="https://joblane.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
             <div class="icon">J</div>
-            <h3>Joblane <span class="badge">New</span></h3>
+            <h3>Joblane</h3>
             <div class="domain">joblane.ai</div>
             <p>An AI job-application copilot: paste a posting for an honest Apply / Stretch / Skip verdict, then get a tailored CV and cover letter from your real experience — with a reviewer pass showing every change.</p>
+            <span class="more">Visit site <span class="arrow">→</span></span>
+          </a>
+
+          <a class="card wide reveal" style="--c: var(--pecia)" href="https://pecia.app/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card" target="_blank" rel="noopener">
+            <div class="icon">P</div>
+            <h3>Pecia <span class="badge">New</span></h3>
+            <div class="domain">pecia.app</div>
+            <p>Your library, and what to read next — secondhand. Keep track of what you've read and want to read (paper, Kindle, or borrowed), get recommendations from your own shelves, and let Pecia watch used-book prices for every title, in any edition, with shipping included. Built for Spanish readers.</p>
             <span class="more">Visit site <span class="arrow">→</span></span>
           </a>
         </div>
@@ -425,6 +436,7 @@
         <a href="https://pixelvault.dev/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">PixelVault</a>
         <a href="https://contentvitals.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">ContentVitals</a>
         <a href="https://joblane.ai/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">Joblane</a>
+        <a href="https://pecia.app/?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=footer" target="_blank" rel="noopener">Pecia</a>
       </div>
     </div>
   </footer>

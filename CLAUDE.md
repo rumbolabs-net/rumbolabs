@@ -6,13 +6,13 @@ Guidance for AI assistants working in this repository.
 
 The **RumboLabs umbrella site** — a single-page, static marketing site for
 [rumbolabs.net](https://rumbolabs.net) that introduces the studio and links to its
-four products. Live in production.
+five products. Live in production.
 
 - **Studio identity:** independent, **bootstrapped (no VC)**, based in **Barcelona,
   Spain**, **AI-native but privacy-first** ("your data is yours, never the product"),
   grows organically.
 - **Products:** Draftmark (draftmark.app), PixelVault (pixelvault.dev),
-  ContentVitals (contentvitals.ai), Joblane (joblane.ai).
+  ContentVitals (contentvitals.ai), Joblane (joblane.ai), Pecia (pecia.app).
 
 ## Architecture (read before editing)
 
@@ -28,7 +28,7 @@ four products. Live in production.
 ## Conventions
 
 - **Per-product color** is a CSS variable (`--draftmark`, `--pixelvault`,
-  `--contentvitals`, `--joblane`) and each card sets `style="--c: var(--<product>)"`.
+  `--contentvitals`, `--joblane`, `--pecia`) and each card sets `style="--c: var(--<product>)"`.
   Reuse this pattern; don't hardcode hex values in markup.
 - **Outbound product links must carry UTMs** for referral attribution:
   `?utm_source=rumbolabs.net&utm_medium=referral&utm_campaign=homepage&utm_content=hero-card`
